@@ -7,11 +7,19 @@
 <div id="orders">
  <% if @customer.orders.present? %>
     <h1>Orders</h1>
-    <%= render @customer.orders %>
+    
       <% @customer.orders.each do |order| %>
+        <%= render order %>
         <p>
         <%= link_to "Show order", order %> 
+         </p>
+           <p>
+        <%= link_to "Edit order", edit_order_path(order) %> 
         </p>
+          <p>
+          <%= link_to "Delete this order", data: {"turbo-method": :delete} %>
+         </p>
+
         <% end %>
   <% end %>
 </div>
