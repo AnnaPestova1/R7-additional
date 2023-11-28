@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @customer %>
-
+  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
+  <%= link_to "Back to customers", customers_path %>
+  <%= button_to "Delete this customer", @customer, method: :delete %>
 <div id="orders">
  <% if @customer.orders.present? %>
     <h1>Orders</h1>
@@ -13,7 +15,4 @@
         <% end %>
   <% end %>
 </div>
-   <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
-
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+ 
