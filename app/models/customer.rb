@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
 #  has_many :orders, inverse_of: :customer
+# has_many :orders, dependent: :destroy
 has_many :orders
 
  validates :first_name, presence: true, format: { with: /\A[a-z\-' ]+\z/i }
