@@ -2,13 +2,40 @@
 
 <h1>Customers</h1>
 
-<div id="customers">
+  <table style="width:auto; border:1px solid black;  border-collapse: collapse" id="customers">
+  <tr>
+    <th style="border:1px solid black; padding:10px">Full Name</th>
+    <th style="border:1px solid black; padding:10px">Number of orders</th> 
+    <th style="border:1px solid black; padding:10px">Buttons</th>
+  </tr>
   <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
+ 
+  <tr>
+    <td style="border:1px solid black; text-align:center; padding:10px">
+    <%= customer.full_name%>
+    </td>
+    <td style="border:1px solid black; text-align:center; padding:10px">
+    <%=customer.orders.count%>
+    </td> 
+    <td style="border:1px solid black; text-align:center; padding:10px">
+<div style="display: flex">
+<div style="padding:3px">
+      <%= button_to "Show", customer, method: :get %>
+      </div>   
+      <div style="padding:3px">
+      <%= button_to "Edit", edit_customer_path(customer), method: :get %>
+      </div>   
+      <div style="padding:3px">
+      <%= button_to "Delete", customer, method: :delete, data: { turbo_confirm: "Are you sure?"} %>
+      </div>   
+   </div>   
+    </td>
+  </tr>
   <% end %>
-</div>
-
+  </table>
+<p>
 <%= link_to "New customer", new_customer_path %>
+</p>
+<p>
+<%= link_to "To orders", orders_path %>
+</p>
