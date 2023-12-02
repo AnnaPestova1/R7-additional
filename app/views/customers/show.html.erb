@@ -1,10 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @customer %>
-
-<div>
   <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
   <%= link_to "Back to customers", customers_path %>
+  <%= button_to "Delete this customer", @customer, method: :delete %>
+<div id="orders">
+ <% if @customer.orders.present? %>
+    <h1>Orders</h1>
+    
+      <% @customer.orders.each do |order| %>
+        <%= render order %>
+        <p>
+        <%= link_to "Show order", order %> 
+         </p>
+           <p>
+        <%= link_to "Edit order", edit_order_path(order) %> 
+        </p>
+          <p>
+          <%= link_to "Delete this order", data: {"turbo-method": :delete} %>
+         </p>
 
-  <%= button_to "Destroy this customer", @customer, method: :delete %>
+        <% end %>
+  <% end %>
 </div>
+ 
