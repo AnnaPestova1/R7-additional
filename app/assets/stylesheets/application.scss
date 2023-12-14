@@ -13,11 +13,30 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 .my_alert {
-    color: red;
+  color: red;
+}
+
+@font-face {
+  font-family: "Whisper";
+  src: url("Whisper-Regular.ttf");
 }
 
 :root {
-   --bs-body-bg: #e7a3f0;
+  --bs-body-bg: #e7a3f0;
+}
+
+.banner-background {
+  background-image: url("IMG_8179.jpg");
+  background-size: cover;
+  font-family: "Whisper";
+}
+
+.font-size-1 {
+  font-size: 70px;
+}
+
+.font-size-2 {
+  font-size: 50px;
 }
