@@ -27,7 +27,9 @@
             <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               Customers
             </button>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu">   
+      <li><%= link_to "To customers", customers_path%></li>
+      <div class="dropdown-divider"></div>
            <% Customer.all.each do |customer| %>
               <li><%= link_to customer.full_name, customer_path(customer)%></li>
              <% end %>
@@ -40,6 +42,8 @@
               Orders
             </button>
             <ul class="dropdown-menu">
+            <li><%= link_to "To orders", orders_path%></li>
+      <div class="dropdown-divider"></div>
               <% Order.all.each do |order| %>
               <li><%= link_to order.product_name, order_path(order)%></li>
              <% end %>

@@ -20,13 +20,13 @@
     <td style="border:1px solid black; text-align:center; padding:10px">
 <div style="display: flex">
 <div style="padding:3px">
-      <%= button_to "Show", customer, method: :get %>
+      <%= button_to "Show", customer, method: :get, class: "btn btn-primary btn-sm" %>
       </div>   
       <div style="padding:3px">
-      <%= button_to "Edit", edit_customer_path(customer), method: :get %>
+      <%= button_to "Edit", edit_customer_path(customer), method: :get, class: "btn btn-primary btn-sm" %>
       </div>   
       <div style="padding:3px">
-      <%= button_to "Delete", customer, method: :delete, data: { turbo_confirm: "Are you sure?"} %>
+      <%= button_to "Delete", customer, method: :delete, data: { turbo_confirm: "Are you sure?"}, class: "btn btn-primary btn-sm" %>
       </div>   
    </div>   
     </td>
@@ -34,9 +34,9 @@
   <% end %>
   </table>
 <p>
-<%= link_to "New customer", new_customer_path %>
+<%= link_to "New customer", new_customer_path, class: "btn btn-primary btn-sm mt-3" %>
 </p>
 <p>
-<%= link_to "To orders", orders_path %>
+<%= link_to "To orders", orders_path, class: "btn btn-primary btn-sm" %>
 </p>
 </div>

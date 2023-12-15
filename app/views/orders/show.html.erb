@@ -3,7 +3,7 @@
 <%= render @order %>
 
 <div>
-<%= link_to "Edit order", edit_order_path(@order) %> 
-  <%= link_to "Back to orders", orders_path %>
-   <%= link_to "Delete this order", @order, data: {"turbo-method": :delete} %>
+<%= link_to "Edit order", edit_order_path(@order), class: "btn btn-primary btn-sm" %> 
+  <%= link_to "Back to orders", orders_path, class: "btn btn-primary btn-sm" %>
+   <%= link_to "Delete this order", @order, data: {"turbo-method": :delete}, class: "btn btn-primary btn-sm" %>
 </div>

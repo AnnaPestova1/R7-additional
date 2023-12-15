@@ -33,7 +33,6 @@ class OrdersController < ApplicationController
 
       # PATCH/PUT /orders/1 or /orders/1.json
   def update
-    debugger
     if @order.update(order_params)
       flash.notice = "The order record was updated successfully."
       # redirect_to @order
