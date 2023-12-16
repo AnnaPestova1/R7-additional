@@ -15,7 +15,10 @@
     <tbody class="table-group-divider">
       <% @customers.each do |customer| %>
       <tr scope="row">
-        <td><%= customer.full_name%></td>
+        <td>
+          <%= icon("fa-regular", "user")%>
+          <%= customer.full_name%>
+        </td>
         <td><%=customer.orders.count%></td>
         <td>
           <div class="container text-center">
