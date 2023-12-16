@@ -1,37 +1,47 @@
-<%= form_with(model: customer) do |form| %>
-  <% if customer.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<%= form_with(model: customer) do |form| %> <% if customer.errors.any? %>
+<div style="color: red">
+  <h2>
+    <%= pluralize(customer.errors.count, "error") %> prohibited this customer
+    from being saved:
+  </h2>
 
-      <ul>
-        <% customer.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% customer.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div>
+<div>
+  <p>
     <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
-  </div>
+    <%=form.text_field:first_name %>
+  </p>
+</div>
 
-  <div>
+<div>
+  <p>
     <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
-  </div>
+     <%= form.text_field:last_name %>
+  </p>
+</div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
+<div>
+  <p>
+    <%= form.label :phone, style: "display: block" %> 
+    <%= form.text_field :phone%>
+  </p>
+</div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
-  </div>
+<div>
+  <p>
+    <%= form.label :email, style: "display: block" %> 
+    <%= form.text_field :email%>
+  </p>
+</div>
 
-  <div>
-    <%= form.submit "Create Customer", class: "btn btn-primary btn-sm mt-3"  %>
-  </div>
+<div>
+  <p><%= form.submit "Confirm", class: "btn btn-primary btn-sm mt-3" %></p>
+</div>
 <% end %>
