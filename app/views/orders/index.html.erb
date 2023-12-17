@@ -22,7 +22,9 @@
               <%= button_to "Edit", edit_order_path(order), method: :get, class: "btn btn-primary btn-sm w-33" %>
             </div>
             <div class="col">
-              <%= button_to "Delete", order, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-primary btn-sm w-33" %>
+              <button type="button" class="btn btn-primary btn-sm w-33" data-bs-toggle="modal" data-bs-target="#myModal" data-id=<%= order.id.to_s %> data-customer="<%= order.customer.full_name %>" data-productname="<%= order.product_name %>" data-productcount="<%= order.product_count %>">Delete</button>
+              <!-- <%= button_to "Delete", order, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-primary btn-sm w-33" %> -->
+              <%= render partial: "orders/deleteModal", locals: { order: order } %>
             </div>
           </div>
         </div>
