@@ -30,7 +30,10 @@
                 <%= button_to "Edit", edit_customer_path(customer), method: :get, class: "btn btn-primary btn-sm w-100" %>
               </div>
               <div class="col">
-                <%= button_to "Delete", customer, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-primary btn-sm w-100" %>
+                <button type="button" class="btn btn-primary btn-sm w-100" data-bs-toggle="modal" data-bs-target="#myModal-<%= customer.id%>">Delete </button>
+                <!-- <%= button_to "Delete", customer, method: :delete, data: {turbo_confirm: "Are you sure?"}, class: "btn btn-primary btn-sm w-100" %> -->
+                <!-- Render the delete modal partial with the current customer -->
+                <%= render partial: "customers/deleteModal", locals: { customer: customer } %>
               </div>
             </div>
           </div>
