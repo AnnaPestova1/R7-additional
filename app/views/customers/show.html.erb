@@ -1,26 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<%= render @customer %> 
+<%= link_to "Edit this customer", edit_customer_path(@customer), class: "btn btn-primary btn-sm" %> 
+<%= link_to "Back to customers", customers_path, class: "btn btn-primary btn-sm" %> 
+ <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#myModal-<%= @customer.id%>">Delete </button>
+  <!-- <%= button_to "Delete this customer", @customer, method: :delete, class: "btn btn-primary btn-sm mt-3" %> %> -->
+  <!-- Render the delete modal partial with the current customer -->
+  <%= render partial: "customers/deleteModal", locals: { customer: @customer } %>
 
-<%= render @customer %>
-  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
-  <%= link_to "Back to customers", customers_path %>
-  <%= button_to "Delete this customer", @customer, method: :delete %>
 <div id="orders">
- <% if @customer.orders.present? %>
-    <h1>Orders</h1>
-    
-      <% @customer.orders.each do |order| %>
-        <%= render order %>
-        <p>
-        <%= link_to "Show order", order %> 
-         </p>
-           <p>
-        <%= link_to "Edit order", edit_order_path(order) %> 
-        </p>
-          <p>
-          <%= link_to "Delete this order", data: {"turbo-method": :delete} %>
-         </p>
+  <% if @customer.orders.present? %>
+  <h1>Orders</h1>
 
-        <% end %>
+  <% @customer.orders.each do |order| %> <%= render order %>
+  <p><%= link_to "Show order", order, class: "btn btn-primary btn-sm" %></p>
+  <p>
+    <%= link_to "Edit order", edit_order_path(order), class: "btn btn-primary btn-sm" %>
+  </p>
+  <p>
+     <%= link_to "Delete this order", order, data: {"turbo-method": :delete}, class: "btn btn-primary btn-sm" %> 
+  </p>
+
+  <% end %> 
   <% end %>
 </div>
- 

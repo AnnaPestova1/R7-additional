@@ -1,9 +1,16 @@
-<p style="color: green"><%= notice %></p>
 
 <%= render @order %>
 
 <div>
-<%= link_to "Edit order", edit_order_path(@order) %> 
-  <%= link_to "Back to orders", orders_path %>
-   <%= link_to "Delete this order", @order, data: {"turbo-method": :delete} %>
+  <p>
+    <%= link_to "Edit order", edit_order_path(@order), class: "btn btn-primary btn-sm" %>
+  </p>
+  <p>
+    <%= link_to "Back to orders", orders_path, class: "btn btn-primary btn-sm" %>
+  </p>
+  <p>
+    <button type="button" class="btn btn-primary btn-sm w-33" data-bs-toggle="modal" data-bs-target="#myModal" data-id=<%= @order.id.to_s %> data-customer="<%= @order.customer.full_name %>" data-productname="<%= @order.product_name %>" data-productcount="<%= @order.product_count %>">Delete</button>
+    <!-- <%= link_to "Delete this order", @order, data: {"turbo-method": :delete}, class: "btn btn-primary btn-sm" %> -->
+    <%= render partial: "orders/deleteModal", locals: { order: @order } %> 
+  </p>
 </div>
